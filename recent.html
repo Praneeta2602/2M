@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recent Donations – 2M</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('images/fd3.jpeg') no-repeat center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .main-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .transparent-bg {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    /* Tagline styling */
+    .tagline {
+      font-size: 16px;
+      font-weight: 400;
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      margin-top: -5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <h1 class="brand">
+        2M
+        <span class="tagline">A Meal and a Memory</span>
+      </h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="recent.html" class="active">Recent Donations</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Section with background image and transparent overlay -->
+  <main class="background-section background-image-recent-specific">
+    <div class="main-content-wrapper transparent-bg">
+      <div class="section-header">
+        <h2 class="section-title">Recent Donations</h2>
+      </div>
+      <div id="donationList" class="donation-grid">
+        <!-- Dynamic Donation Cards Will Load Here -->
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 2M. All rights reserved.</p>
+      <small>Made with ❤ by The 2M Team</small>
+    </div>
+  </footer>
+
+  <script>
+    const donationList = document.getElementById("donationList");
+
+    function loadDonations() {
+      const donations = JSON.parse(localStorage.getItem("donations")) || [];
+      donationList.innerHTML = "";
+
+      if (donations.length === 0) {
+        donationList.innerHTML = '<p class="empty-text">No donations found.</p>';
+      } else {
+        donations.reverse().forEach((donation) => {
+          const card = document.createElement("div");
+          card.className = "donation-card";
+          card.innerHTML = `
+            <h3>${donation.name}</h3>
+            <p><strong>Food:</strong> ${donation.food}</p>
+            <p><strong>Quantity:</strong> ${donation.quantity}</p>
+            <p><strong>Date:</strong> ${donation.date}</p>
+            <p><strong>Address:</strong> ${donation.address}</p>
+            <p><strong>Phone:</strong> ${donation.phone}</p>
+          `;
+          donationList.appendChild(card);
+        });
+      }
+    }
+
+    loadDonations();
+  </script>
+
+</body>
+</html>

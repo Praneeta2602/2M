@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – 2M</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('images/fd6.jpg') no-repeat center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .main-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .transparent-bg {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    /* Tagline styling */
+    .tagline {
+      font-size: 16px;
+      font-weight: 400;
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      margin-top: -5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <h1 class="brand">
+        2M
+        <span class="tagline">A Meal and a Memory</span>
+      </h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="donate.html">Donate</a></li>
+          <li><a href="recent.html">Recent Donations</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a class="active" href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-text">Have questions, feedback, or suggestions? We'd love to hear from you!</p>
+
+    <form id="contactForm">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Your Name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="yourname@example.com" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+      </div>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <h3>Contact Information</h3>
+      <p><strong>Email:</strong> <a href="mailto:support@2M.org">support@2M.org</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+919876543210">+91 98765 43210</a></p>
+      <p><strong>Address:</strong> 2M Foundation, 5th Floor, Sree Plaza, Jubilee Hills, Hyderabad – 500033, India</p>
+      <p class="social-links">
+        <strong>Follow us:</strong>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i> Facebook</a> |
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i> Instagram</a> |
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i> Twitter</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 2M. All rights reserved.</p>
+      <small>Made with ❤️ by The 2M Team</small>
+    </div>
+  </footer>
+
+</body>
+</html>

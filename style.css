@@ -1,0 +1,771 @@
+/* Global Styles */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f7f6; /* Lighter background for a fresh feel */
+  color: #333; /* Darker text for better readability */
+  line-height: 1.7;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  display: flex; /* Added for better alignment control within navbar container */
+  align-items: center; /* Vertically align items */
+  justify-content: space-between; /* Distribute space between brand and nav */
+  flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+/* Navbar */
+.navbar {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0; /* Softer border */
+  padding: 15px 0; /* Slightly reduced padding */
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08); /* More prominent shadow */
+  /* The .container within .navbar will handle flex layout */
+}
+
+.brand {
+  font-family: 'Dancing Script', cursive; /* Stylish font for the brand */
+  font-size: 42px; /* Larger and more prominent */
+  font-weight: 700;
+  color: #2a84e5; /* Green tone for "MealBridge" */
+  text-transform: none; /* Keep original casing for stylish font */
+  letter-spacing: 0; /* Reset letter-spacing */
+  margin-right: auto; /* Push to the left */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px; /* Increased gap */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #555;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-out;
+  position: relative;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+  color:#2a84e5; /* Green tone for active/hover */
+  transform: translateY(-2px);
+}
+
+.nav-links a.active::after { /* Underline for active link */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 100%;
+  height: 2px;
+  background-color: #2a84e5;
+  border-radius: 2px;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)),
+    url('https://images.unsplash.com/photo-1606788075761-47c3c94a26f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 0 0 50px 50px; /* More pronounced border-radius */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero h2 {
+  font-size: 48px; /* Larger heading */
+  margin-bottom: 25px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+  font-size: 20px;
+  margin-bottom: 30px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero blockquote {
+  font-style: italic;
+  margin: 15px auto;
+  font-size: 19px;
+  opacity: 0.95;
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.hero-buttons {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Buttons */
+.btn,
+.btn-outline {
+  padding: 14px 32px; /* Larger padding */
+  font-weight: 600;
+  border-radius: 50px; /* Pill shape */
+  text-decoration: none;
+  display: inline-block;
+  margin: 8px 0; /* Adjusted margin */
+  font-size: 17px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn {
+  background-color: #2a84e5; /* Green primary button */
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.3);
+}
+
+.btn:hover {
+  background-color: #2a84e5; /* Darker green on hover */
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(40, 167, 69, 0.4);
+}
+
+.btn-outline {
+  border: 2px solid #fff;
+  color: #fff;
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: #fff;
+  color: #2a84e5;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+.btn-danger {
+  background-color: #dc3545; /* Red for clear button */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+
+/* Section Titles & Text */
+.section-title {
+  font-size: 38px; /* Larger title */
+  margin-bottom: 25px;
+  text-align: center;
+  color: #2a84e5; /* Green tone */
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background-color: #2a84e5;
+  border-radius: 2px;
+}
+
+.section-text {
+  font-size: 19px;
+  text-align: center;
+  color:white;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  line-height: 1.8;
+}
+
+/* Donation Form (reused for Contact Form) */
+#donationForm, #contactForm { /* Apply styles to both forms */
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 40px auto;
+}
+
+#donationForm label, #contactForm label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #333;
+}
+
+#donationForm input[type="text"],
+#donationForm input[type="email"],
+#donationForm input[type="number"],
+#donationForm input[type="date"],
+#donationForm input[type="tel"],
+#donationForm textarea,
+#contactForm input[type="text"], /* Added for contact form */
+#contactForm input[type="email"], /* Added for contact form */
+#contactForm textarea { /* Added for contact form */
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#donationForm input:focus,
+#donationForm textarea:focus,
+#contactForm input:focus, /* Added for contact form */
+#contactForm textarea:focus { /* Added for contact form */
+  border-color: #2a84e5;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.2);
+  outline: none;
+}
+
+#donationForm textarea,
+#contactForm textarea { /* Added for contact form */
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* Specific styling for form groups in contact.html */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.alert {
+  background-color: #d4edda; /* Light green for success */
+  color:#2a84e5; /* Dark green text */
+  padding: 15px;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 600;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Recent Donations Page */
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.donation-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.donation-card {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+
+.donation-card {
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* Soft shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.donation-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.donation-card h3 {
+  color: #2a84e5;
+  font-size: 24px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.donation-card p {
+  margin-bottom: 8px;
+  color: #444;
+}
+
+.donation-card p strong {
+  color: #333;
+}
+
+.empty-text {
+  text-align: center;
+  font-size: 1.2em;
+  color: #777;
+  padding: 50px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* About Us Page */
+.impact-section {
+  margin-top: 60px;
+  padding: 40px 0;
+  background-color: #eaf7ed; /* Light green background */
+  border-radius: 15px;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.impact-grid {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 40px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.impact-box {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  flex: 1;
+  min-width: 220px;
+  max-width: 280px;
+  transition: transform 0.3s ease;
+}
+
+.impact-box:hover {
+  transform: translateY(-8px);
+}
+
+.impact-box h4 {
+  font-size: 32px; /* Larger numbers */
+  color: #2a84e5;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.impact-box p {
+  font-size: 18px;
+  color: #555;
+}
+
+.testimonials {
+  margin-top: 80px;
+  padding: 40px 0;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+}
+
+.testimonial-card img {
+  width: 80px; /* Larger image */
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #2a84e5; /* Green border around image */
+}
+
+.testimonial-card p {
+  font-style: italic;
+  margin-bottom: 15px;
+  color: #444;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.testimonial-card small {
+  display: block;
+  font-weight: 600;
+  color: #2a84e5;
+  margin-top: auto; /* Pushes name to bottom */
+}
+
+/* Contact Us Page Specific Styles */
+.contact-info {
+  margin-top: 50px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-info h3 {
+  color: #2a84e5;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.contact-info p {
+  margin-bottom: 10px;
+  font-size: 17px;
+  color: #555;
+}
+
+.contact-info a {
+  color: #2a84e5;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color:#2a84e5;
+  text-decoration: underline;
+}
+
+.social-links a {
+  margin: 0 10px; /* Spacing between social links */
+  font-size: 18px; /* Adjust font size for links */
+  display: inline-flex; /* Align icon and text */
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+  color: #2a84e5; /* Green color for social links */
+  font-weight: 600;
+}
+
+.social-links a:hover {
+  color: #2a84e5;
+  text-decoration: none; /* No underline on hover for social links */
+}
+
+.social-links i {
+  font-size: 20px; /* Icon size */
+}
+
+/* Thank You Page Specific Styles */
+.thank-you-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh; /* Ensure it takes up enough vertical space */
+  text-align: center;
+  background-color: #ffffff;
+  padding: 50px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-top: 50px; /* Space from navbar */
+}
+
+.thank-you-content .section-title {
+  margin-bottom: 20px;
+}
+
+.thank-you-content .section-text {
+  margin-bottom: 30px;
+  max-width: 700px;
+}
+
+.thank-you-buttons {
+  margin-top: 20px;
+}
+
+/* --- Background Image Sections --- */
+.background-section {
+  min-height: 300px; /* Default height for background image sections */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff; /* Default text color for overlay */
+  text-align: center;
+  margin-bottom: 40px; /* Space below each background section */
+  border-radius: 10px; /* Rounded corners for background sections */
+  overflow: hidden; /* Ensure content doesn't spill if rounded corners are tight */
+}
+
+/* Specific background images with transparent overlays */
+.background-image-home {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fd.jpg');
+}
+
+.background-image-donate {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fd1.jpg');
+}
+
+.background-image-recent {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fd2.jpg');
+}
+
+.background-image-about {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fd3.jpg');
+}
+
+.background-image-contact {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fd4.jpg');
+}
+
+/* New background image for recent.html */
+.background-image-recent-specific {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fd7.jpg');
+}
+
+/* Styles for transparent content background */
+.main-content-wrapper {
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.transparent-bg {
+  background-color: rgba(255, 255, 255, 0.85); /* White with 85% opacity */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the transparent box */
+}
+
+
+/* Footer */
+footer {
+  background-color: #2c3e50;
+  color: #e0e0e0; /* Lighter footer text */
+  padding: 30px 0; /* More padding */
+  text-align: center;
+  margin-top: 80px; /* Increased margin-top */
+  font-size: 15px;
+}
+
+footer small {
+  display: block;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar .container { /* Target the container within navbar for responsive adjustments */
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 15px;
+    gap: 15px; /* Adjust gap for smaller screens */
+  }
+
+  .brand {
+    font-size: 36px; /* Adjusted font size for smaller screens */
+    margin-right: 0; /* Reset margin-right */
+  }
+
+  .hero {
+    padding: 80px 15px;
+  }
+
+  .hero h2 {
+    font-size: 38px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+
+  .hero blockquote {
+    font-size: 17px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .btn, .btn-outline {
+    width: 80%;
+    margin: 0 auto; /* Center buttons */
+  }
+
+  .section-title {
+    font-size: 32px;
+  }
+
+  .section-text {
+    font-size: 17px;
+    margin-bottom: 30px;
+  }
+
+  .impact-grid,
+  .testimonial-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .impact-box, .testimonial-card {
+    max-width: 90%;
+  }
+
+  #donationForm, #contactForm {
+    padding: 25px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .thank-you-content {
+    padding: 30px;
+    min-height: 50vh;
+  }
+
+  .background-section {
+    min-height: 200px; /* Adjust height for smaller screens */
+  }
+
+  .main-content-wrapper {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px 20px;
+  }
+
+  .brand {
+    font-size: 30px; /* Further adjustment for very small screens */
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .hero h2 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  .hero blockquote {
+    font-size: 15px;
+  }
+
+  .btn, .btn-outline {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+
+  .section-title {
+    font-size: 28px;
+  }
+
+  .section-text {
+    font-size: 16px;
+  }
+
+  .donation-card {
+    padding: 20px;
+  }
+
+  .donation-card h3 {
+    font-size: 20px;
+  }
+
+  .impact-box h4 {
+    font-size: 28px;
+  }
+
+  .impact-box p {
+    font-size: 16px;
+  }
+
+  .testimonial-card p {
+    font-size: 15px;
+  }
+
+  form input, form textarea {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .social-links a {
+    font-size: 16px;
+    margin: 0 5px;
+  }
+
+  .social-links i {
+    font-size: 18px;
+  }
+
+  .thank-you-content {
+    padding: 20px;
+  }
+
+  .background-section {
+    min-height: 150px; /* Further adjust height for very small screens */
+  }
+}

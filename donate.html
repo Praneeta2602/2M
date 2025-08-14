@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate Food – 2M</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: url('images/fd11.jpg') no-repeat center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .main-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+    .transparent-bg {
+      background-color: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 10px;
+    }
+    /* Tagline styling */
+    .tagline {
+      font-size: 16px;
+      font-weight: 400;
+      color: #555;
+      font-family: 'Poppins', sans-serif;
+      margin-top: -5px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="container">
+      <h1 class="brand">
+        2M
+        <span class="tagline">A Meal and a Memory</span>
+      </h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="donate.html" class="active">Donate</a></li>
+          <li><a href="recent.html">Recent Donations</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h2 class="section-title">Donation Form</h2>
+    <form id="donationForm">
+      <label for="donorName">Donor Name</label>
+      <input type="text" id="donorName" required>
+
+      <label for="email">Email</label>
+      <input type="email" id="email" required>
+
+      <label for="foodDescription">Food Description</label>
+      <input type="text" id="foodDescription" required>
+
+      <label for="quantity">Quantity</label>
+      <input type="number" id="quantity" required>
+
+      <label for="date">Date</label>
+      <input type="date" id="date" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" required>
+
+      <label for="address">Address</label>
+      <textarea id="address" rows="2" required onfocus="getLocation()"></textarea>
+
+      <input type="hidden" id="latitude">
+      <input type="hidden" id="longitude">
+
+      <button type="submit" class="btn">Submit Donation</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 2M. All rights reserved.</p>
+      <small>Made with ❤️ by The 2M Team</small>
+    </div>
+  </footer>
+
+  <script>
+    let locationFetched = false;
+
+    function getLocation() {
+      if (locationFetched) return;
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(async function (position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+
+          document.getElementById('latitude').value = lat;
+          document.getElementById('longitude').value = lon;
+
+          try {
+            const response = await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}&format=json`);
+            const data = await response.json();
+            const address = data.display_name || 'Location not found';
+            document.getElementById('address').value = address;
+          } catch (err) {
+            console.error("Failed to retrieve address from coordinates:", err);
+          }
+
+          locationFetched = true;
+        }, (error) => {
+            console.error("Geolocation error:", error);
+        });
+      } else {
+        console.warn("Geolocation not supported by this browser.");
+      }
+    }
+
+    document.getElementById("donationForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const donorNameInput = document.getElementById("donorName");
+      const emailInput = document.getElementById("email");
+      const phoneInput = document.getElementById("phone");
+
+      const donorName = donorNameInput.value.trim();
+      const email = emailInput.value.trim();
+      const foodDescription = document.getElementById("foodDescription").value.trim();
+      const quantity = document.getElementById("quantity").value.trim();
+      const date = document.getElementById("date").value.trim();
+      const phone = phoneInput.value.trim();
+      const address = document.getElementById("address").value.trim();
+      const latitude = document.getElementById("latitude").value.trim();
+      const longitude = document.getElementById("longitude").value.trim();
+
+      // Validation for Donor Name (only alphabets and spaces)
+      const nameRegex = /^[A-Za-z\s]+$/;
+      if (!nameRegex.test(donorName)) {
+        alert("Donor Name can only contain alphabets and spaces.");
+        donorNameInput.focus();
+        return;
+      }
+
+      // Validation for Phone Number (not more than 9 digits)
+      const phoneRegex = /^\d{1,9}$/;
+      if (!phoneRegex.test(phone)) {
+        alert("Phone Number must contain digits only and not be more than 9 digits.");
+        phoneInput.focus();
+        return;
+      }
+
+      // Validation for Email (must end with @gmail.com)
+      if (!email.endsWith("@gmail.com")) {
+        alert("Email must end with @gmail.com.");
+        emailInput.focus();
+        return;
+      }
+
+      const donation = {
+        name: donorName,
+        email: email,
+        food: foodDescription,
+        quantity: quantity,
+        date: date,
+        phone: phone,
+        address: address,
+        lat: latitude,
+        lon: longitude
+      };
+
+      const donations = JSON.parse(localStorage.getItem("donations")) || [];
+      donations.push(donation);
+      localStorage.setItem("donations", JSON.stringify(donations));
+
+      window.location.href = "thankyou.html";
+    });
+  </script>
+
+</body>
+</html>
