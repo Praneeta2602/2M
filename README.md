@@ -27,5 +27,11 @@ Tools: VS Code, GitHub Pages (for hosting)
 
 𝐒𝐜𝐫𝐞𝐞𝐧𝐬𝐡𝐨𝐭𝐬:
 
+Home Page:
 ![image](https://github.com/Praneeta2602/2M/blob/3f3212dedf879f1448d6e73e5db3f396c633d33e/image.png)
+Donation Form:
+![image](https://github.com/Praneeta2602/2M/blob/30acf54e8d1ab46289d3d60cca63136172916dd5/Screenshot%202025-08-17%20154056.png)
+Contact Form:
+
+
 
