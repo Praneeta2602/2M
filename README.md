@@ -32,6 +32,40 @@ Home Page:
 Donation Form:
 ![image](https://github.com/Praneeta2602/2M/blob/30acf54e8d1ab46289d3d60cca63136172916dd5/Screenshot%202025-08-17%20154056.png)
 Contact Form:
+![image](https://github.com/Praneeta2602/2M/blob/337f09c53e20a8126919da370267c2e7c33435b6/Screenshot%202025-08-17%20154524.png)
 
+📂 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐒𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞:
+/index.html        → Homepage
+/about.html        → About Us page
+/contact.html      → Contact page
+/donate.html       → Donation form
+/recent.html       → Recent donations list
+/thankyou.html     → Post-donation thank you page
+/style.css         → Stylesheet
+/script.js         → Donation & form logic
+/images/           → Background & UI images
 
+⚡ 𝐇𝐨𝐰 𝐭𝐨 𝐑𝐮𝐧 𝐋𝐨𝐜𝐚𝐥𝐥𝐲
+
+-Clone the repository:
+
+-git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+
+-Open index.html in a browser.
+
+🌱 𝐅𝐮𝐭𝐮𝐫𝐞 𝐄𝐧𝐡𝐚𝐧𝐜𝐞𝐦𝐞𝐧𝐭𝐬
+
+✅ Backend integration with database.
+
+✅ SMS/Email notifications for donors.
+
+✅ Volunteer module for food pickup and delivery.
+
+✅ Integration with Salesforce CRM for donation tracking.
+
+🙌 𝐀𝐜𝐤𝐧𝐨𝐰𝐥𝐞𝐝𝐠𝐦𝐞𝐧𝐭𝐬:
+Built with 💻, ❤️, and ☕.
+
+Inspired by the belief that “No one should sleep hungry.”
 
